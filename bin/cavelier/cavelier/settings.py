@@ -28,6 +28,7 @@ INSTALLED_APPS = (
     'general',
     'contenido',
     'noticias',
+    'abogados',
     'redactor',
 )
 

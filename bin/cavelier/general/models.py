@@ -25,3 +25,15 @@ class generales(models.Model):
 
 	def __unicode__(self):
 		return self.nombre
+
+class areas_de_practica(models.Model):
+	nombre = models.CharField(max_length=80)
+
+	def __unicode__(self):
+		return self.nombre
+
+class idiomas(models.Model):
+	idioma = models.CharField(max_length=80)
+
+	def __unicode__(self):
+		return self.idioma
