@@ -1,7 +1,7 @@
 import os
 
 from unipath import Path
-RUTA_PROYECTO = Path(__file__).ancestor(2)
+RUTA_PROYECTO = Path(__file__).ancestor(1)
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,6 +25,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'general',
+    'contenido',
+    'noticias',
+    'redactor',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,6 +61,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'cavelier.wsgi.application'
+
+REDACTOR_OPTIONS = {'lang': 'es'}
+REDACTOR_UPLOAD = 'uploads/'
 
 
 # Database
