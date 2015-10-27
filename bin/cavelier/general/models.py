@@ -37,3 +37,9 @@ class idiomas(models.Model):
 
 	def __unicode__(self):
 		return self.idioma
+
+class cargos(models.Model):
+	cargo = models.CharField(max_length=80, default=' ')
+
+	def __unicode__(self):
+		return self.cargo
