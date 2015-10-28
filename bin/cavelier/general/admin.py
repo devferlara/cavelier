@@ -1,9 +1,9 @@
 from django.contrib import admin
-from general.models import generales, areas_de_practica, idiomas, cargos
+from general.models import Generales, Areas_de_practica, Idiomas, Cargos
 
 
-admin.site.register(generales)
-admin.site.register(areas_de_practica)
-admin.site.register(idiomas)
-admin.site.register(cargos)
+admin.site.register(Generales)
+admin.site.register(Areas_de_practica)
+admin.site.register(Idiomas)
+admin.site.register(Cargos)
 

@@ -3,7 +3,7 @@ from redactor.fields import RedactorField
 
 # Create your models here.
 
-class noticias_web(models.Model):
+class Noticias_web(models.Model):
 	nombre = models.CharField(max_length=80)
 	fecha = models.DateTimeField(auto_now_add=True)
 	imagen = models.ImageField(upload_to='photos')

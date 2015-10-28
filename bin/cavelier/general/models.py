@@ -4,21 +4,15 @@ from redactor.fields import RedactorField
 
 # Create your models here.
 
-class generales(models.Model):
+class Generales(models.Model):
 	nombre = models.CharField(max_length=80)
-	logo_general = models.ImageField(upload_to='photos')
+	logo_general = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	link_facebook = models.CharField(validators=[URLValidator()], max_length=100)
 	link_twitter = models.CharField(validators=[URLValidator()], max_length=100)
 	link_linkedn = models.CharField(validators=[URLValidator()], max_length=100)
 	link_instagram = models.CharField(validators=[URLValidator()], max_length=100)
 	fecha = models.DateTimeField(auto_now_add=True)
-	premio_logo_uno = models.ImageField(upload_to='photos', default='imagen/default.png')
-	premio_logo_dos = models.ImageField(upload_to='photos', default='imagen/default.png')
-	premio_logo_tres = models.ImageField(upload_to='photos', default='imagen/default.png')
-	premio_logo_cuatro = models.ImageField(upload_to='photos', default='imagen/default.png')
-	premio_logo_cinco = models.ImageField(upload_to='photos', default='imagen/default.png')
-	premio_logo_seis = models.ImageField(upload_to='photos', default='imagen/default.png')
-	union_logos = models.ImageField(upload_to='photos', default='imagen/default.png')
+	union_logos = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	texto_bogota = RedactorField(verbose_name=u'Texto Bogota', default=' ')
 	texto_medellin = RedactorField(verbose_name=u'Texto Medellin', default=' ')
 	copyright = models.CharField(max_length=80, default=' ')
@@ -26,19 +20,19 @@ class generales(models.Model):
 	def __unicode__(self):
 		return self.nombre
 
-class areas_de_practica(models.Model):
+class Areas_de_practica(models.Model):
 	nombre = models.CharField(max_length=80)
 
 	def __unicode__(self):
 		return self.nombre
 
-class idiomas(models.Model):
+class Idiomas(models.Model):
 	idioma = models.CharField(max_length=80)
 
 	def __unicode__(self):
 		return self.idioma
 
-class cargos(models.Model):
+class Cargos(models.Model):
 	cargo = models.CharField(max_length=80, default=' ')
 
 	def __unicode__(self):

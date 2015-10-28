@@ -2,7 +2,7 @@ import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 from unipath import Path
 
-RUTA_PROYECTO = Path(__file__).ancestor(1)
+RUTA_PROYECTO = Path(__file__).ancestor(2)
 
 
 # Quick-start development settings - unsuitable for production
@@ -46,13 +46,6 @@ SUIT_CONFIG = {
     # 'LIST_PER_PAGE': 15
 }
 
-
-# Application definition
-TEMPLATE_CONTEXT_PROCESSORS = TCP + (
-    'django.core.context_processors.request',
-)
-
-
 INSTALLED_APPS = (
     'suit',
     'django.contrib.admin',
@@ -89,6 +82,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'general.current_site.current_site',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -136,3 +130,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = "media/"
+
+STATIC_ROOT = os.path.join(RUTA_PROYECTO, "static_in_pro", "static_root")
+MEDIA_ROOT = os.path.join(os.path.dirname(RUTA_PROYECTO), 'static_in_env', 'media_root')
+
+STATICFILES_DIRS = (
+    os.path.join(RUTA_PROYECTO, "static_in_pro", "our_static"),
+    #os.path.join(RUTA_PROYECTO, "static_in_env"),
+    #'/var/www/static/',
+)
