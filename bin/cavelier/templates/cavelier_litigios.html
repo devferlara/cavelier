@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <img src="{{ media }}{{ datos.imagen }}" width="100%" />
+        </div>
+        <div class="col-md-12">
+            <span class="lineas_lema">
+                {% autoescape off %}
+                    {{ datos.texto_lema }}
+                {% endautoescape %}
+            </span>
+        </div>
+        <div class="col-md-12">
+            <div class="lineas_contenido">
+                <div class="row">
+        
+                    <div class="col-md-12">
+                        
+                        {% autoescape off %}
+                            {{ datos.texto_descripcion }}
+                        {% endautoescape %}
+
+                    </div>
+
+                    
+                    <div class="col-md-3 col-md-offset-2 text-center">
+                        <span class="titulo_lineas">LITIGIOS</span>
+                        <a href="/servicio/2/" class="mas_info_lineas">MÁS INFORMACIÓN <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <span class="titulo_lineas">SOLUCIÓN ALTERNATIVA DE DISPUTAS</span>
+                        <a href="/servicio/3/" class="mas_info_lineas">MÁS INFORMACIÓN <i class="fa fa-chevron-right"></i></a>
+                    </div>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 margin_bottom_30">
+            <div class="row">
+                <div class="col-md-4 rayaInferior">
+                </div>
+                <div class="col-md-4">
+                    <span class="estamos">NUESTRAS OTRAS LÍNEAS DE SERVICIOS</span>
+                </div>
+                <div class="col-md-4 rayaInferior">
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <a href="/cavelier_negocios/"><img src="{% static 'assets/imagenes/lineas/img-27.jpg' %}" width="100%" /></a>
+        </div>
+        <div class="col-md-4">
+            <a href="/cavelier_propiedad_intelectual/"><img src="{% static 'assets/imagenes/lineas/img-28.jpg' %}" width="100%" /></a>
+        </div>
+        <div class="col-md-4">
+            <a href="/cavelier_internacional/"><img src="{% static 'assets/imagenes/lineas/img-30.jpg' %}" width="100%" /></a>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

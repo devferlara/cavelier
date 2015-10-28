@@ -59,6 +59,7 @@ INSTALLED_APPS = (
     'noticias',
     'abogados',
     'redactor',
+    'lineas_de_servicio',
 )
 
 MIDDLEWARE_CLASSES = (

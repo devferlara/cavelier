@@ -16,7 +16,7 @@ class Abogado_individual(models.Model):
 	experiencia = RedactorField(verbose_name=u'Experiencia Laboral', default=' ')
 	Publicaciones = RedactorField(verbose_name=u'Publicaciones', default=' ')
 	idiomas = models.ManyToManyField(Idiomas, blank=True)
-	cargo = models.OneToOneField(Cargos, blank=True, null=True)
+	cargo = models.ManyToManyField(Cargos, blank=True, null=True)
 	areas_practica = models.ManyToManyField(Areas_de_practica, blank=True)
 
 	def __unicode__(self):
