@@ -4,7 +4,7 @@ from .views import main
 urlpatterns = patterns ('',
 	#Pagina principal
 	url(r'^$', 'general.views.main'),
-	url(r'^inicio/', 'general.views.main'),
+	url(r'^(?P<name>\w+)/inicio/', 'general.views.main'),
 
 	#Lineas de servicios
 	url(r'^cavelier_internacional/', 'general.views.cavelier_internacional'),

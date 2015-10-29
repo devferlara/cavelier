@@ -5,9 +5,12 @@ from lineas_de_servicio.models import *
 from django.template import Context, RequestContext
 
 
-def main(request):
+def main(request, name):
 	index = Pagina_principal.objects.all()
-	return render_to_response("inicio.html", {'datos': index}, context_instance=RequestContext(request))
+	idioma = obtener_idioma(name)
+
+	response = render_to_response("inicio.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response
 
 def cavelier_internacional(request):
 	datos = Linea_de_servicio.objects.get(pk = 4)
@@ -31,3 +34,14 @@ def cavelier_servicios(request, pks):
 	datos_imagen = Linea_de_servicio.objects.get(pk = datos.linea.pk)
 	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen}, context_instance=RequestContext(request))
 
+def obtener_idioma(name):
+	if name == 'es':
+		idioma = 'ESP'
+	elif name == 'en':
+		idioma = 'ENG'
+	elif name == 'fr':
+		idioma = 'FRA'
+	else:
+		idioma = 'ESP'
+
+	return idioma

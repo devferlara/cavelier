@@ -4,6 +4,9 @@
 {% load staticfiles %}
 
 {% for dato in datos %}
+
+
+
 <section class="container slider">
     <div class="row">
         <div class="col-md-12 no-padding">
@@ -64,7 +67,31 @@
     </div>
 </section>
 
-	
+{% block js %}
+<script>
+
+console.log("{{ idioma }}");
+
+var idioma_seleccionar = '{{ idioma }}';
+var d;
+
+if(idioma_seleccionar == 'ESP'){
+    d = document.getElementById("id_esp");
+} else if(idioma_seleccionar == 'ENG'){
+    d = document.getElementById("id_eng");
+} else if(idioma_seleccionar == 'FRA'){
+    d = document.getElementById("id_fra");
+} else {
+    d = document.getElementById("id_esp");
+}
+
+d.className = d.className + " active";
+
+
+
+
+</script>
+{% endblock %}
 
 		
 		
