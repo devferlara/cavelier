@@ -26,6 +26,18 @@ class Areas_de_practica(models.Model):
 	def __unicode__(self):
 		return self.nombre
 
+class Areas_de_practica_fr(models.Model):
+	nombre = models.CharField(max_length=80)
+
+	def __unicode__(self):
+		return self.nombre	
+
+class Areas_de_practica_en(models.Model):
+	nombre = models.CharField(max_length=80)
+
+	def __unicode__(self):
+		return self.nombre
+
 class Idiomas(models.Model):
 	idioma = models.CharField(max_length=80)
 
@@ -33,6 +45,18 @@ class Idiomas(models.Model):
 		return self.idioma
 
 class Cargos(models.Model):
+	cargo = models.CharField(max_length=80, default=' ')
+
+	def __unicode__(self):
+		return self.cargo
+
+class Cargos_en(models.Model):
+	cargo = models.CharField(max_length=80, default=' ')
+
+	def __unicode__(self):
+		return self.cargo
+
+class Cargos_fr(models.Model):
 	cargo = models.CharField(max_length=80, default=' ')
 
 	def __unicode__(self):
