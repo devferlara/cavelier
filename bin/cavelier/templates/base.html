@@ -20,10 +20,10 @@
 
         <section class="container">
             <div class="col-md-12 text-right centrado-xs">
-                <ul class="idiomas">
-                    <li><a href="#" class="active">ESP</a></li>
-                    <li><a href="#">ENG</a></li>
-                    <li><a href="#">FRA</a></li>
+                <ul class="idiomas" id="idiomas">
+                    <li><a id="id_esp" href="#">ESP</a></li>
+                    <li><a id="id_eng" href="#">ENG</a></li>
+                    <li><a id="id_fra" href="#">FRA</a></li>
                 </ul>
             </div>
         </section>
@@ -44,8 +44,24 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" class="active">INICIO</a></li>
                     <li><a href="#">LA FIRMA</a></li>
-                    <li><a href="#">LÍNEAS DE SERVICIO</a></li>
-                    <li><a href="profesionales.php">NUESTROS PROFESIONALES</a></li>
+                
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">LINEAS DE SERVICIO</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">LITIGIOS</a></li>
+                            <li><a href="#">NEGOCIOS</a></li>
+                            <li><a href="#">PROPIEDAD INTELECTUAL</a></li>
+                            <li><a href="#">INTERNACIONAL</a></li>
+                        </ul>
+                    </li>
+         
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">NUESTROS PROFESIONALES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">ÁREAS DE PRÁCTICA</a></li>
+                            <li><a href="#">ORDEN ALFABÉTICO</a></li>
+                        </ul>
+                    </li>
                     <li><a href="noticia.php">NOTICIAS Y PUBLICACIONES</a></li>
                     <li><a href="#">OFICINAS</a></li>
                     <li><a href="#">CONTACTO</a></li>
@@ -122,6 +138,8 @@
 
     </body>
 
+    {{ current_site.idioma }}
+
 </html>
 <script src="{% static 'assets/js/jquery.js' %}"></script>
 <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
@@ -138,4 +156,5 @@
     });
 
 </script>
+{% block js %}{% endblock %}
 {% endwith %}
