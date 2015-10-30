@@ -1,0 +1,252 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+{% for dato in datos %}
+
+{% if idioma == 'es' %}
+    <section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ dato.imagen }}" width="100%" />
+            <span class="profesional_area">
+                {% for cargo in dato.cargo.all %}
+                    {{ cargo }}
+                {% endfor %}
+            </span>
+            <div class="profesional_informacion">
+                <span class="profesional_nombre">{{ dato.nombre }}<br />{{ dato.apellidos }}</span>
+                <a href="#"><i class="fa fa-envelope-o"></i></a>
+                <span class="profesional_especialidad">CAVELIER PROPIEDAD INTELECTUAL</span>
+                <p><strong>Mail:</strong> {{ dato.mail }}</p>
+                <p><strong>Teléfono:</strong> {{ dato.telefonos }}</p>
+                <p><strong>Teléfono Directo:</strong> {{ dato.telefono_directo }}</p>
+                <hr />
+                <span class="profesional_titulo_small">ÁREAS DE PRÁCTICA</span>
+                {% for area in dato.areas_practica.all %}
+                    <p>{{ area }}</p>
+                {% endfor %}
+                <hr />
+                <span class="profesional_titulo_small">Idiomas:</span>
+                {% for idioma in dato.idiomas.all %}
+                    <p>{{ idioma }}</p>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <span class="profesional_lema">
+                {{ dato.lema }}
+            </span>
+            <div class="profesional_datos">
+                <div class="row padding_datos">
+                    {% if dato.formacion and dato.formacion %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">FORMACIÓN ACADÉMICA</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.formacion }}
+                                {% endautoescape %}
+                            </ul> 
+                        </div>
+                    {% endif %}
+                    {% if dato.experiencia and dato.experiencia %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">EXPERIENCIA LABORAL</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.experiencia }}
+                                {% endautoescape %}
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    {% endif %}
+                    {% if dato.Publicaciones and dato.Publicaciones %}
+                        <div class="col-md-6">
+                            <hr />
+                            <span class="titulo_datos">PUBLICACIONES</span>
+                            <p>Autor de las siguientes obras:</p>
+                            {% autoescape off %}
+                                {{ dato.Publicaciones }}
+                            {% endautoescape %}
+                        </div>
+                    {% endif %}
+                        
+                    
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if idioma == 'en' %}
+    <section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ dato.imagen }}" width="100%" />
+            <span class="profesional_area">
+                {% for cargo in dato.cargo_en.all %}
+                    {{ cargo }}
+                {% endfor %}
+            </span>
+            <div class="profesional_informacion">
+                <span class="profesional_nombre">{{ dato.nombre }}<br />{{ dato.apellidos }}</span>
+                <a href="#"><i class="fa fa-envelope-o"></i></a>
+                <span class="profesional_especialidad">CAVELIER INTELLECTUAL PROPERTY</span>
+                <p><strong>Mail:</strong> {{ dato.mail }}</p>
+                <p><strong>Phone:</strong> {{ dato.telefonos }}</p>
+                <p><strong>Direct Phone:</strong> {{ dato.telefono_directo }}</p>
+                <hr />
+                <span class="profesional_titulo_small">PRACTICE AREAS</span>
+                {% for area in dato.areas_practica_ingles.all %}
+                    <p>{{ area }}</p>
+                {% endfor %}
+                <hr />
+                <span class="profesional_titulo_small">LANGUAGES:</span>
+                {% for idioma in dato.idiomas.all %}
+                    <p>{{ idioma }}</p>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <span class="profesional_lema">
+                {{ dato.lema }}
+            </span>
+            <div class="profesional_datos">
+                <div class="row padding_datos">
+                    {% if dato.formacion and dato.formacion %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">ACADEMIC BACKGROUND</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.formacion_ingles}}
+                                {% endautoescape %}
+                            </ul> 
+                        </div>
+                    {% endif %}
+                    {% if dato.experiencia and dato.experiencia %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">WORK EXPERIENCE</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.experiencia_ingles }}
+                                {% endautoescape %}
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    {% endif %}
+                    {% if dato.Publicaciones and dato.Publicaciones %}
+                        <div class="col-md-6">
+                            <hr />
+                            <span class="titulo_datos">PUBLICATIONS</span>
+                            <p>Autor de las siguientes obras:</p>
+                            {% autoescape off %}
+                                {{ dato.Publicaciones_ingles }}
+                            {% endautoescape %}
+                        </div>
+                    {% endif %}
+                        
+                    
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% if idioma == 'fr' %}
+    <section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ dato.imagen }}" width="100%" />
+            <span class="profesional_area">
+                {% for cargo in dato.cargo_fr.all %}
+                    {{ cargo }}
+                {% endfor %}
+            </span>
+            <div class="profesional_informacion">
+                <span class="profesional_nombre">{{ dato.nombre }}<br />{{ dato.apellidos }}</span>
+                <a href="#"><i class="fa fa-envelope-o"></i></a>
+                <span class="profesional_especialidad">CAVELIER PROPRIÉTÉ INTELLECTUELLE</span>
+                <p><strong>Mail:</strong> {{ dato.mail }}</p>
+                <p><strong>Téléphone:</strong> {{ dato.telefonos }}</p>
+                <p><strong>Téléphone direct:</strong> {{ dato.telefono_directo }}</p>
+                <hr />
+                <span class="profesional_titulo_small">DOMAINES d'activité</span>
+                {% for area in dato.areas_practica_frances.all %}
+                    <p>{{ area }}</p>
+                {% endfor %}
+                <hr />
+                <span class="profesional_titulo_small">LANGUAGES:</span>
+                {% for idioma in dato.idiomas.all %}
+                    <p>{{ idioma }}</p>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div class="col-md-8">
+            <span class="profesional_lema">
+                {{ dato.lema }}
+            </span>
+            <div class="profesional_datos">
+                <div class="row padding_datos">
+                    {% if dato.formacion and dato.formacion %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">FORMATION ACADÉMIQUE</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.formacion_frances}}
+                                {% endautoescape %}
+                            </ul> 
+                        </div>
+                    {% endif %}
+                    {% if dato.experiencia and dato.experiencia %}
+                        <div class="col-md-6">
+                            <span class="titulo_datos">L'EXPÉRIENCE DE TRAVAIL</span>
+                            <ul>
+                                {% autoescape off %}
+                                    {{ dato.experiencia_frances }}
+                                {% endautoescape %}
+                            </ul>
+                        </div>
+                        <div class="clearfix"></div>
+                    {% endif %}
+                    {% if dato.Publicaciones and dato.Publicaciones %}
+                        <div class="col-md-6">
+                            <hr />
+                            <span class="titulo_datos">PUBLICATIONS</span>
+                            <p>Autor de las siguientes obras:</p>
+                            {% autoescape off %}
+                                {{ dato.Publicaciones_frances }}
+                            {% endautoescape %}
+                        </div>
+                    {% endif %}
+                        
+                    
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+                
+                
+
+          
+
+{% endfor %}
+{% endblock %}

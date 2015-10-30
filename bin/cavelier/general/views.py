@@ -2,16 +2,30 @@ from django.shortcuts import render_to_response
 from general.models import *
 from contenido.models import *
 from lineas_de_servicio.models import * 
+from abogados.models import *
 from django.template import Context, RequestContext
 
 
+#Pagina principal
 def main(request, name):
 	index = Pagina_principal.objects.all()
-	idioma = obtener_idioma(name)
+
+	if name=='':
+		idioma = 'ESP'
+	else:
+		idioma = name
 
 	response = render_to_response("inicio.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
 	return response
 
+def main_sin_argumento(request):
+	index = Pagina_principal.objects.all()
+	idioma = 'ESP'
+	response = render_to_response("inicio.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response
+#Pagina principal
+
+#Lineas de servicio
 def cavelier_internacional(request):
 	datos = Linea_de_servicio.objects.get(pk = 4)
 	return render_to_response("cavelier_internacional.html", {'datos': datos}, context_instance=RequestContext(request))
@@ -33,15 +47,52 @@ def cavelier_servicios(request, pks):
 	datos = Linea_individual.objects.get(pk = pks)
 	datos_imagen = Linea_de_servicio.objects.get(pk = datos.linea.pk)
 	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen}, context_instance=RequestContext(request))
+#Lineas de servicio
 
-def obtener_idioma(name):
+
+
+#Listar areas
+def cavelier_areas(request, name):
+
 	if name == 'es':
-		idioma = 'ESP'
+		index = Areas_de_practica.objects.all()
+		idioma = name
 	elif name == 'en':
-		idioma = 'ENG'
+		index = Areas_de_practica_en.objects.all()
+		idioma = name
 	elif name == 'fr':
-		idioma = 'FRA'
+		index = Areas_de_practica_fr.objects.all()
+		idioma = name
 	else:
-		idioma = 'ESP'
+		index = Areas_de_practica.objects.all()
+		idioma = 'es'
+	
+	response = render_to_response("cavelier_areas_de_practica.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response
 
-	return idioma
+#Abogados por area  
+
+def abogados_por_area(request, name, id):
+
+	if name == 'es':
+		index = Abogado_individual.objects.filter(areas_practica=id)
+		idioma = name
+	elif name == 'en':
+		index = Abogado_individual.objects.filter(areas_practica_ingles=id)
+		idioma = name
+	elif name == 'fr':
+		index = Abogado_individual.objects.filter(areas_practica_frances=id)
+		idioma = name
+	else:
+		index = Abogado_individual.objects.filter(areas_practica=id)
+		idioma = name
+
+	response = render_to_response("cavelier_abogados_por_area.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response
+
+def abogado(request, name, id):
+	index = Abogado_individual.objects.filter(pk=id) 
+	idioma = name
+
+	response = render_to_response("abogado_individual.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response

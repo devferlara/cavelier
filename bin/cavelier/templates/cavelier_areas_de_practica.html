@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        {{ idioma }}
+        <div class="col-md-12">
+            <span class="lineas_lema">LÍNEAS DE SERVICIOS</strong></span>
+        </div>
+        <div class="col-md-12">
+            <div class="lineas_contenido">
+                <div class="row">
+        
+                    {% for dato in datos %}
+
+                    <div class="col-md-6">
+                        <a class="area-link" href="/{{ idioma }}/area/{{ dato.pk }}">{{ dato.nombre }}</a>
+                    </div>
+
+                    {% endfor %}
+                    
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock %}

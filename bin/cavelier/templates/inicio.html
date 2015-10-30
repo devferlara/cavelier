@@ -35,7 +35,7 @@
         <div class="col-md-3 home-img text-center" style="background-image:url({{ media }}{{ dato.imagen_internacional }})">
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
             <span class="spanLitigios">INTERNACIONAL</span>
-            <a href="/cavelier_internacional/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
+            <a href="/{{ idioma }}/cavelier_internacional/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
         </div>
     </div>
 </section>
@@ -75,20 +75,17 @@ console.log("{{ idioma }}");
 var idioma_seleccionar = '{{ idioma }}';
 var d;
 
-if(idioma_seleccionar == 'ESP'){
+if(idioma_seleccionar == 'es'){
     d = document.getElementById("id_esp");
-} else if(idioma_seleccionar == 'ENG'){
+} else if(idioma_seleccionar == 'en'){
     d = document.getElementById("id_eng");
-} else if(idioma_seleccionar == 'FRA'){
+} else if(idioma_seleccionar == 'fr'){
     d = document.getElementById("id_fra");
 } else {
     d = document.getElementById("id_esp");
 }
 
 d.className = d.className + " active";
-
-
-
 
 </script>
 {% endblock %}

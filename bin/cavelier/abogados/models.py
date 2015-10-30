@@ -12,17 +12,18 @@ class Abogado_individual(models.Model):
 	mail = models.CharField(max_length=100, default=' ')
 	telefonos = models.CharField(max_length=100, default=' ')
 	telefono_directo = models.CharField(max_length=100, default=' ')
-	formacion = RedactorField(verbose_name=u'Formacion academica', default=' ')
-	experiencia = RedactorField(verbose_name=u'Experiencia Laboral', default=' ')
-	Publicaciones = RedactorField(verbose_name=u'Publicaciones', default=' ')
 
-	formacion_ingles = RedactorField(verbose_name=u'Formacion academica Ingles', default=' ')
-	experiencia_ingles = RedactorField(verbose_name=u'Experiencia Laboral Ingles', default=' ')
-	Publicaciones_ingles = RedactorField(verbose_name=u'Publicaciones Ingles', default=' ')
+	formacion = RedactorField(verbose_name=u'Formacion academica', default=' ', blank=True)
+	experiencia = RedactorField(verbose_name=u'Experiencia Laboral', default=' ', blank=True)
+	Publicaciones = RedactorField(verbose_name=u'Publicaciones', default=' ', blank=True)
 
-	formacion_frances = RedactorField(verbose_name=u'Formacion academica Frances', default=' ')
-	experiencia_frances = RedactorField(verbose_name=u'Experiencia Laboral Frances', default=' ')
-	Publicaciones_frances = RedactorField(verbose_name=u'Publicaciones Frances', default=' ')
+	formacion_ingles = RedactorField(verbose_name=u'Formacion academica Ingles', default=' ', blank=True)
+	experiencia_ingles = RedactorField(verbose_name=u'Experiencia Laboral Ingles', default=' ', blank=True)
+	Publicaciones_ingles = RedactorField(verbose_name=u'Publicaciones Ingles', default=' ', blank=True)
+
+	formacion_frances = RedactorField(verbose_name=u'Formacion academica Frances', default=' ', blank=True)
+	experiencia_frances = RedactorField(verbose_name=u'Experiencia Laboral Frances', default=' ', blank=True)
+	Publicaciones_frances = RedactorField(verbose_name=u'Publicaciones Frances', default=' ', blank=True)
 
 	idiomas = models.ManyToManyField(Idiomas, blank=True)
 	cargo = models.ManyToManyField(Cargos, blank=True, null=True)
