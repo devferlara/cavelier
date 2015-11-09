@@ -19,23 +19,103 @@
     <div class="row">
         <div class="col-md-3 home-img text-center" style="background-image:url({{ media }}{{ dato.iimagen_litigios }})">
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
-            <span class="spanLitigios">Litigios</span>
-            <a href="/cavelier_litigios/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
+            <span class="spanLitigios">
+                {% if idioma == 'es' %}
+                    Litigios
+                {% endif %}
+                {% if idioma == 'en' %}
+                    Litigation
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    Litiges
+                {% endif %}
+            </span>
+            <a href="/{{ idioma }}/cavelier_litigios/" class="botonMasInformacion">
+                {% if idioma == 'es' %}
+                    MÁS INFORMACIÓN
+                {% endif %}
+                {% if idioma == 'en' %}
+                    MORE INFORMATION
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    PLUS D'INFORMATIONS
+                {% endif %}
+            </a>
         </div>
         <div class="col-md-3 home-img text-center" style="background-image:url({{ media }}{{ dato.imagen_negocios }})">
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
-            <span class="spanLitigios">Negocios</span>
-            <a href="/cavelier_negocios/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
+            <span class="spanLitigios">
+                {% if idioma == 'es' %}
+                    Negocios
+                {% endif %}
+                {% if idioma == 'en' %}
+                    Business
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    Affaires
+                {% endif %}
+            </span>
+            <a href="/cavelier_negocios/" class="botonMasInformacion">
+                {% if idioma == 'es' %}
+                    MÁS INFORMACIÓN
+                {% endif %}
+                {% if idioma == 'en' %}
+                    MORE INFORMATION
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    PLUS D'INFORMATIONS
+                {% endif %}
+            </a>
         </div>
         <div class="col-md-3 home-img2 text-center" style="background-image:url({{ media }}{{ dato.imagen_propiedad }})">
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
-            <span class="spanLitigios">Propiedad<br />Intelectual</span>
-            <a href="/cavelier_propiedad_intelectual/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
+            <span class="spanLitigios">
+                {% if idioma == 'es' %}
+                    Propiedad<br />Intelectual</span>
+                {% endif %}
+                {% if idioma == 'en' %}
+                    Intellectual<br />property</span>
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    Propriete<br />Intellectuelle</span>
+                {% endif %}
+
+            <a href="/cavelier_propiedad_intelectual/" class="botonMasInformacion">
+                {% if idioma == 'es' %}
+                    MÁS INFORMACIÓN
+                {% endif %}
+                {% if idioma == 'en' %}
+                    MORE INFORMATION
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    PLUS D'INFORMATIONS
+                {% endif %}
+            </a>
         </div>
         <div class="col-md-3 home-img text-center" style="background-image:url({{ media }}{{ dato.imagen_internacional }})">
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
-            <span class="spanLitigios">INTERNACIONAL</span>
-            <a href="/{{ idioma }}/cavelier_internacional/" class="botonMasInformacion">MÁS INFORMACIÓN</a>
+            <span class="spanLitigios">
+                {% if idioma == 'es' %}
+                    Internacional
+                {% endif %}
+                {% if idioma == 'en' %}
+                    International
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    International
+                {% endif %}
+            </span>
+            <a href="/{{ idioma }}/cavelier_internacional/" class="botonMasInformacion">
+                {% if idioma == 'es' %}
+                    MÁS INFORMACIÓN
+                {% endif %}
+                {% if idioma == 'en' %}
+                    MORE INFORMATION
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    PLUS D'INFORMATIONS
+                {% endif %}
+            </a>
         </div>
     </div>
 </section>
@@ -54,7 +134,16 @@
 <section class="container">
     <div class="row">
         <div class="col-md-12 premios">
-            <span>PREMIOS Y RECONOCIMIENTOS</span>
+                {% if idioma == 'es' %}
+                    <span>PREMIOS Y RECONOCIMIENTOS</span>
+                {% endif %}
+                {% if idioma == 'en' %}
+                    <span>AWARDS</span>
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    <span>RÉCOMPENSES</span>
+                {% endif %}
+            
             <div id="owl-example" class="owl-carousel">
                 <div><img src="{{ media }}{{ dato.premio_logo_uno }}" /></div>
                 <div><img src="{{ media }}{{ dato.premio_logo_dos }}" /></div>
@@ -68,26 +157,7 @@
 </section>
 
 {% block js %}
-<script>
 
-console.log("{{ idioma }}");
-
-var idioma_seleccionar = '{{ idioma }}';
-var d;
-
-if(idioma_seleccionar == 'es'){
-    d = document.getElementById("id_esp");
-} else if(idioma_seleccionar == 'en'){
-    d = document.getElementById("id_eng");
-} else if(idioma_seleccionar == 'fr'){
-    d = document.getElementById("id_fra");
-} else {
-    d = document.getElementById("id_esp");
-}
-
-d.className = d.className + " active";
-
-</script>
 {% endblock %}
 
 		

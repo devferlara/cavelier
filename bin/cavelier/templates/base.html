@@ -21,9 +21,9 @@
         <section class="container">
             <div class="col-md-12 text-right centrado-xs">
                 <ul class="idiomas" id="idiomas">
-                    <li><a id="id_esp" href="#">ESP</a></li>
-                    <li><a id="id_eng" href="#">ENG</a></li>
-                    <li><a id="id_fra" href="#">FRA</a></li>
+                    <li><a id="id_esp" href="/es/inicio/">ESP</a></li>
+                    <li><a id="id_eng" href="/en/inicio/">ENG</a></li>
+                    <li><a id="id_fra" href="/fr/inicio/">FRA</a></li>
                 </ul>
             </div>
         </section>
@@ -58,7 +58,7 @@
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">NUESTROS PROFESIONALES</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">ÁREAS DE PRÁCTICA</a></li>
+                            <li><a href="/{{ idioma }}/areas-de-practica/">ÁREAS DE PRÁCTICA</a></li>
                             <li><a href="#">ORDEN ALFABÉTICO</a></li>
                         </ul>
                     </li>
@@ -154,6 +154,26 @@
         });
 
     });
+
+</script>
+<script>
+
+console.log("{{ idioma }}");
+
+var idioma_seleccionar = '{{ idioma }}';
+var d;
+
+if(idioma_seleccionar == 'es'){
+    d = document.getElementById("id_esp");
+} else if(idioma_seleccionar == 'en'){
+    d = document.getElementById("id_eng");
+} else if(idioma_seleccionar == 'fr'){
+    d = document.getElementById("id_fra");
+} else {
+    d = document.getElementById("id_esp");
+}
+
+d.className = d.className + " active";
 
 </script>
 {% block js %}{% endblock %}

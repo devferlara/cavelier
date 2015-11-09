@@ -8,6 +8,8 @@ class Pagina_principal(models.Model):
 	nombre = models.CharField(max_length=80)
 	fecha = models.DateTimeField(auto_now_add=True)
 	imagen_slide = models.ImageField(upload_to='uploads', default='imagen/default.png')
+	imagen_slide_en = models.ImageField(upload_to='uploads', default='imagen/default.png', blank=True)
+	imagen_slide_fr = models.ImageField(upload_to='uploads', default='imagen/default.png', blank=True)
 	iimagen_litigios = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	imagen_negocios = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	imagen_propiedad = models.ImageField(upload_to='uploads', default='imagen/default.png')

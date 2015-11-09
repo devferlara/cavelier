@@ -26,6 +26,7 @@ class Abogado_individual(models.Model):
 	Publicaciones_frances = RedactorField(verbose_name=u'Publicaciones Frances', default=' ', blank=True)
 
 	idiomas = models.ManyToManyField(Idiomas, blank=True)
+	
 	cargo = models.ManyToManyField(Cargos, blank=True, null=True)
 	cargo_en = models.ManyToManyField(Cargos_en, blank=True, null=True)
 	cargo_fr = models.ManyToManyField(Cargos_fr, blank=True, null=True)
