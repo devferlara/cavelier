@@ -26,27 +26,35 @@ def main_sin_argumento(request):
 #Pagina principal
 
 #Lineas de servicio
-def cavelier_internacional(request):
+def cavelier_internacional(request, name):
 	datos = Linea_de_servicio.objects.get(pk = 4)
-	return render_to_response("cavelier_internacional.html", {'datos': datos}, context_instance=RequestContext(request))
+	return render_to_response("cavelier_internacional.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
 
-def cavelier_propiedad(request):
+def cavelier_propiedad(request, name):
 	datos = Linea_de_servicio.objects.get(pk = 3)
-	return render_to_response("cavelier_propiedad.html", {'datos': datos}, context_instance=RequestContext(request))
+	return render_to_response("cavelier_propiedad.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
 
-def cavelier_negocios(request):
+def cavelier_negocios(request, name):
 	datos = Linea_de_servicio.objects.get(pk = 2)
 	lineas = Linea_individual.objects.filter(linea=2)
-	return render_to_response("cavelier_negocios.html", {'datos' : datos, 'lineas' : lineas}, context_instance=RequestContext(request))
+	return render_to_response("cavelier_negocios.html", {'datos' : datos, 'lineas' : lineas, 'idioma': name}, context_instance=RequestContext(request))
 
-def cavelier_litigios(request):
+def cavelier_litigios(request, name):
 	datos = Linea_de_servicio.objects.get(pk = 1)
-	return render_to_response("cavelier_litigios.html", {'datos': datos}, context_instance=RequestContext(request))
+	return render_to_response("cavelier_litigios.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
 
 def cavelier_servicios(request, pks):
 	datos = Linea_individual.objects.get(pk = pks)
 	datos_imagen = Linea_de_servicio.objects.get(pk = datos.linea.pk)
-	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen}, context_instance=RequestContext(request))
+	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen, 'idioma': 'es'}, context_instance=RequestContext(request))
+def cavelier_servicios_en(request, pks):
+	datos = Linea_individual.objects.get(pk = pks)
+	datos_imagen = Linea_de_servicio.objects.get(pk = datos.linea.pk)
+	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen, 'idioma': 'en'}, context_instance=RequestContext(request))
+def cavelier_servicios_fr(request, pks):
+	datos = Linea_individual.objects.get(pk = pks)
+	datos_imagen = Linea_de_servicio.objects.get(pk = datos.linea.pk)
+	return render_to_response("cavelier_servicios.html", {'datos': datos, 'datos_imagen': datos_imagen, 'idioma': 'fr'}, context_instance=RequestContext(request))
 #Lineas de servicio
 
 
@@ -95,4 +103,11 @@ def abogado(request, name, id):
 	idioma = name
 
 	response = render_to_response("abogado_individual.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
+	return response
+
+def abogados_alfabetica(request, name):
+
+	index = Abogado_individual.objects.all().order_by('apellidos')
+
+	response = render_to_response("todos_abogados.html", {'datos': index, 'idioma': name}, context_instance=RequestContext(request))
 	return response

@@ -3583,7 +3583,7 @@ tbody.collapse.in {
   font-size: 14px;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #0B1A2B;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #ccc;
@@ -3608,8 +3608,13 @@ tbody.collapse.in {
   clear: both;
   font-weight: normal;
   line-height: 1.42857143;
-  color: #333;
+  font-family: 'BebasNeueRegular';
+  color: white;
+  font-size: 20px;
   white-space: nowrap;
+}
+.nav ul li a {
+  border-right: none !important;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {

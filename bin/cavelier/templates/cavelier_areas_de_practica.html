@@ -7,7 +7,15 @@
     <div class="row">
         {{ idioma }}
         <div class="col-md-12">
-            <span class="lineas_lema">LÍNEAS DE SERVICIOS</strong></span>
+            {% if idioma == 'es' %}
+                <span class="lineas_lema">LÍNEAS DE SERVICIOS</strong></span>
+            {% endif %}
+            {% if idioma == 'en' %}
+                <span class="lineas_lema">SERVICES</strong></span>
+            {% endif %}
+            {% if idioma == 'fr' %}
+                <span class="lineas_lema">LIGNES DE SERVICES</strong></span>
+            {% endif %}
         </div>
         <div class="col-md-12">
             <div class="lineas_contenido">

@@ -27,7 +27,9 @@
                 </ul>
             </div>
         </section>
-        
+
+
+        {% if idioma == 'es' %}
         <nav role="navigation" class="navbar navbar-default container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -37,21 +39,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="/es/inicio/" class="navbar-brand"><img src="{{ media }}{{ current_site.var.logo_general }}" /></a>
+                <a href="/{{ idioma }}/inicio/" class="navbar-brand"><img src="{{ media }}{{ current_site.var.logo_general }}" /></a>
             </div>
             <!-- Collection of nav links and other content for toggling -->
             <div id="navbarCollapse" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#" class="active">INICIO</a></li>
-                    <li><a href="#">LA FIRMA</a></li>
-                
                     <li class="dropdown">
                         <a href="#" data-toggle="dropdown" class="dropdown-toggle">LINEAS DE SERVICIO</a>
                         <ul class="dropdown-menu">
-                            <li><a href="#">LITIGIOS</a></li>
-                            <li><a href="#">NEGOCIOS</a></li>
-                            <li><a href="#">PROPIEDAD INTELECTUAL</a></li>
-                            <li><a href="#">INTERNACIONAL</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_litigios/">LITIGIOS</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_negocios/">NEGOCIOS</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_propiedad_intelectual/">PROPIEDAD INTELECTUAL</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_internacional/">INTERNACIONAL</a></li>
                         </ul>
                     </li>
          
@@ -63,12 +63,95 @@
                         </ul>
                     </li>
                     <li><a href="noticia.php">NOTICIAS Y PUBLICACIONES</a></li>
-                    <li><a href="#">OFICINAS</a></li>
                     <li><a href="#">CONTACTO</a></li>
                 </ul>
             </div>
+        </nav>       
+        {% endif %}
+        {% if idioma == 'en' %}
+        <nav role="navigation" class="navbar navbar-default container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/{{ idioma }}/inicio/" class="navbar-brand"><img src="{{ media }}{{ current_site.var.logo_general }}" /></a>
+            </div>
+            <!-- Collection of nav links and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="active">HOME</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/{{ idioma }}/cavelier_litigios/">LITIGATION</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_negocios/">BUSINESS</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_propiedad_intelectual/">INTELLECTUAL PROPERTY</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_internacional/">INTERNATIONAL</a></li>
+                        </ul>
+                    </li>
+         
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">OUR LAWYERS</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/{{ idioma }}/areas-de-practica/">PRACTICE AREAS</a></li>
+                            <li><a href="#">ALPHABETIC ORDER</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="noticia.php">NEWS AND CAVEBLOGS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
         </nav>
+        {% endif %}
+        {% if idioma == 'fr' %}
+        <nav role="navigation" class="navbar navbar-default container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/{{ idioma }}/inicio/" class="navbar-brand"><img src="{{ media }}{{ current_site.var.logo_general }}" /></a>
+            </div>
+            <!-- Collection of nav links and other content for toggling -->
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" class="active">ACCUEIL</a></li>
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">LIGNES DE SERVICES</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/{{ idioma }}/cavelier_litigios/">LITIGES</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_negocios/">AFFAIRES</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_propiedad_intelectual/">PROPRIETE INTELLECTUELLE</a></li>
+                            <li><a href="/{{ idioma }}/cavelier_internacional/">INTERNATIONAL</a></li>
+                        </ul>
+                    </li>
+         
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">NOS AVOCATS</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/{{ idioma }}/areas-de-practica/">DOMAINES DE PRATIQUE</a></li>
+                            <li><a href="#">ALPHABÉTIQUE</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="noticia.php">NOUVELLES ET CAVEBLOGS</a></li>
+                    <li><a href="#">CONTACT</a></li>
+                </ul>
+            </div>
+        </nav>
+        {% endif %}
 
+        
+        
+
+
+        {% if idioma == 'es' %}
         <section class="container sub-menu-seccion">
             <div class="row">
                 <div class="col-md-8 bloque-sub-menu">
@@ -86,7 +169,52 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
-        </section>
+        </section>            
+        {% endif %}
+        {% if idioma == 'en' %}
+        <section class="container sub-menu-seccion">
+            <div class="row">
+                <div class="col-md-8 bloque-sub-menu">
+                    <ul class="sub-menu">
+                        <li><a href="#">Work with us</a></li>
+                        <li><a href="#">AREA FOR CLIENTS</a></li>
+                        <li><a href="#">CAVELIER DEL DERECHO ASSOCIATION</a></li>
+                        <li><a href="#">INTRANET</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-md-offset-1 bloque-sub-menu busqueda padding-bottom-2">
+                    <input type="text" placeholder="Ej: Litigios" />
+                    <i class="fa fa-search"></i>
+                    <span>SEARCH</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>          
+        {% endif %}
+        {% if idioma == 'fr' %}
+        <section class="container sub-menu-seccion">
+            <div class="row">
+                <div class="col-md-8 bloque-sub-menu">
+                    <ul class="sub-menu">
+                        <li><a href="#">travailler avec nous</a></li>
+                        <li><a href="#">ESPACE CLIENTS</a></li>
+                        <li><a href="#">ASSOCIATION CAVELIER DU DROIT</a></li>
+                        <li><a href="#">INTRANET</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-md-offset-1 bloque-sub-menu busqueda padding-bottom-2">
+                    <input type="text" placeholder="Ej: Litigios" />
+                    <i class="fa fa-search"></i>
+                    <span>SEARCH</span>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </section>           
+        {% endif %}
+
+
+
+        
 
         {% block content %}{% endblock %}
 
@@ -95,7 +223,16 @@
                 <div class="col-md-5 rayaInferior">
                 </div>
                 <div class="col-md-2">
-                    <span class="estamos">TAMBIÉN ESTAMOS EN</span>
+                    {% if idioma == 'es' %}
+                        <span class="estamos">TAMBIÉN ESTAMOS EN</span>
+                    {% endif %}
+                    {% if idioma == 'en' %}
+                        <span class="estamos">FIND US ON</span>
+                    {% endif %}
+                    {% if idioma == 'fr' %}
+                        <span class="estamos">NOUS TROUVER</span>
+                    {% endif %}
+                    
                 </div>
                 <div class="col-md-5 rayaInferior">
                 </div>
@@ -163,17 +300,17 @@ console.log("{{ idioma }}");
 var idioma_seleccionar = '{{ idioma }}';
 var d;
 
-if(idioma_seleccionar == 'es'){
-    d = document.getElementById("id_esp");
-} else if(idioma_seleccionar == 'en'){
-    d = document.getElementById("id_eng");
-} else if(idioma_seleccionar == 'fr'){
-    d = document.getElementById("id_fra");
-} else {
-    d = document.getElementById("id_esp");
-}
+    if(idioma_seleccionar == 'es'){
+        d = document.getElementById("id_esp");
+    } else if(idioma_seleccionar == 'en'){
+        d = document.getElementById("id_eng");
+    } else if(idioma_seleccionar == 'fr'){
+        d = document.getElementById("id_fra");
+    } else {
+        d = document.getElementById("id_esp");
+    }
 
-d.className = d.className + " active";
+    d.className = d.className + " active";
 
 </script>
 {% block js %}{% endblock %}

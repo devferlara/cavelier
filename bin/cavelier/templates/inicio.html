@@ -10,7 +10,16 @@
 <section class="container slider">
     <div class="row">
         <div class="col-md-12 no-padding">
-            <img src="{{ media }}{{ dato.imagen_slide }}" width="100%" />
+            {% if idioma == 'es' %}
+                <img src="{{ media }}{{ dato.imagen_slide }}" width="100%" />
+            {% endif %}
+            {% if idioma == 'en' %}
+                <img src="{{ media }}{{ dato.imagen_slide_en }}" width="100%" />
+            {% endif %}
+            {% if idioma == 'fr' %}
+                <img src="{{ media }}{{ dato.imagen_slide_fr }}" width="100%" />
+            {% endif %}
+            
         </div>
     </div>
 </section>
@@ -18,7 +27,9 @@
 <section class="container slider">
     <div class="row">
         <div class="col-md-3 home-img text-center" style="background-image:url({{ media }}{{ dato.iimagen_litigios }})">
+
             <img src="{% static 'assets/imagenes/cavelierletras-05.png' %}" class="caveletras" />
+
             <span class="spanLitigios">
                 {% if idioma == 'es' %}
                     Litigios
@@ -55,7 +66,7 @@
                     Affaires
                 {% endif %}
             </span>
-            <a href="/cavelier_negocios/" class="botonMasInformacion">
+            <a href="/{{ idioma }}/cavelier_negocios/" class="botonMasInformacion">
                 {% if idioma == 'es' %}
                     MÁS INFORMACIÓN
                 {% endif %}
@@ -80,7 +91,7 @@
                     Propriete<br />Intellectuelle</span>
                 {% endif %}
 
-            <a href="/cavelier_propiedad_intelectual/" class="botonMasInformacion">
+            <a href="/{{ idioma }}/cavelier_propiedad_intelectual/" class="botonMasInformacion">
                 {% if idioma == 'es' %}
                     MÁS INFORMACIÓN
                 {% endif %}
