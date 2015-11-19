@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ datos.imagen_interna }}" width="100%" />
+            <span>
+                EXCELENCIA LEGAL<strong>EN UN MUNDO SIN FRONTERAS</strong>
+            </span>
+        </div>
+        <div class="col-md-8">
+
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+
+                        <span class="la_firma">LA FIRMA</span>
+                        
+                        
+                            <div class="row">
+                                <span class="col-md-3 la_firma_cuadros">ACERCA DE NOSOTROS</span>
+                                <span class="col-md-3 la_firma_cuadros">CONDUCTA PROFESIONAL</span>
+                                <span class="col-md-3 la_firma_cuadros">RECONOCIMIENTOS</span>
+                                <span class="col-md-3 la_firma_cuadros">MEMBRESÍAS</span>
+                            </div>
+                       
+                        
+                    
+
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

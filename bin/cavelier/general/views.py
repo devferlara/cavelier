@@ -3,6 +3,7 @@ from general.models import *
 from contenido.models import *
 from lineas_de_servicio.models import * 
 from abogados.models import *
+from firma.models import *
 from django.template import Context, RequestContext
 
 
@@ -101,13 +102,17 @@ def abogados_por_area(request, name, id):
 def abogado(request, name, id):
 	index = Abogado_individual.objects.filter(pk=id) 
 	idioma = name
-
 	response = render_to_response("abogado_individual.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
 	return response
 
 def abogados_alfabetica(request, name):
-
 	index = Abogado_individual.objects.all().order_by('apellidos')
-
 	response = render_to_response("todos_abogados.html", {'datos': index, 'idioma': name}, context_instance=RequestContext(request))
 	return response
+
+def acerca_firma(request, name):
+	datos = acerca.objects.get(pk=1)
+	response = render_to_response("cavelier_firma.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
+	return response
+
+

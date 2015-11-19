@@ -30,5 +30,8 @@ urlpatterns = patterns ('',
 	#abogado ver
 	url(r'^(?P<name>\w+)/abogado/(?P<id>\w+)/$', 'general.views.abogado'),
 
+	#seccion firma
+	url(r'^(?P<name>\w+)/firma/acerca/$', 'general.views.acerca_firma'),
+
 )
 

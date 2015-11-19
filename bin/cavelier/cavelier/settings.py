@@ -60,6 +60,7 @@ INSTALLED_APPS = (
     'abogados',
     'redactor',
     'lineas_de_servicio',
+    'firma',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,8 +108,6 @@ DATABASES = {
         'NAME': 'cavelier_db',
         'USER': 'root',
         'PASSWORD': '',
-        #'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
-        #'PORT': '3306',
     }
 }
 
@@ -139,6 +138,4 @@ MEDIA_ROOT = os.path.join(os.path.dirname(RUTA_PROYECTO), 'static_in_env', 'medi
 
 STATICFILES_DIRS = (
     os.path.join(RUTA_PROYECTO, "static_in_pro", "our_static"),
-    #os.path.join(RUTA_PROYECTO, "static_in_env"),
-    #'/var/www/static/',
 )
