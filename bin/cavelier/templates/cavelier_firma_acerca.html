@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ datos.imagen_interna }}" width="100%" />
+            <span class="firma_texto">
+                EXCELENCIA LEGAL<strong>EN UN MUNDO SIN FRONTERAS</strong>
+            </span>
+        </div>
+        <div class="col-md-8">
+
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+
+                        <span class="la_firma">LA FIRMA</span>
+                        
+                        {% if idioma == 'es' %}
+                            <span class="la_firma_cuadros firma_activa">ACERCA DE NOSOTROS</span>
+                            <span class="la_firma_cuadros">CONDUCTA PROFESIONAL</span>
+                            <span class="la_firma_cuadros">RECONOCIMIENTOS</span>
+                            <span class="la_firma_cuadros">MEMBRESÍAS</span>
+                        {% endif %}
+                        {% if idioma == 'en' %}
+                            <span class="la_firma_cuadros firma_activa">ABOUT US</span>
+                            <span class="la_firma_cuadros">PROFESSIONAL CONDUCT</span>
+                            <span class="la_firma_cuadros">AWARDS</span>
+                            <span class="la_firma_cuadros">MEMBERSHIPS</span>
+                        {% endif %}
+                        {% if idioma == 'fr' %}
+                            <span class="la_firma_cuadros firma_activa">MIEUX NOUS CONNAÍTRE</span>
+                            <span class="la_firma_cuadros">CONDUITE PROFESSIONNELLE</span>
+                            <span class="la_firma_cuadros">RÉCOMPENSES</span>
+                            <span class="la_firma_cuadros">MEMBRE D’ASSOCIATIONS</span>
+                        {% endif %}
+
+                    
+                        <div class="firma_contenido">
+                        
+                            {% autoescape off %}
+                                {{ contenido }}
+                            {% endautoescape %}
+                            
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

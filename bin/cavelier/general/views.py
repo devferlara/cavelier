@@ -112,7 +112,29 @@ def abogados_alfabetica(request, name):
 
 def acerca_firma(request, name):
 	datos = acerca.objects.get(pk=1)
-	response = render_to_response("cavelier_firma.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
+	if name == 'es':
+		contenido = datos.texto_descripcion
+	elif name == 'en':
+		contenido = datos.texto_descripcion_en
+	elif name == 'fr':
+		contenido = datos.texto_descripcion_fr
+	else:
+		contenido = datos.texto_descripcion
+
+	response = render_to_response("cavelier_firma_acerca.html", {'datos': datos, 'contenido': contenido, 'idioma': name}, context_instance=RequestContext(request))
 	return response
 
 
+def conducta_firma(request, name):
+	datos = conducta.objects.get(pk=1)
+	if name == 'es':
+		contenido = datos.texto_descripcion
+	elif name == 'en':
+		contenido = datos.texto_descripcion_en
+	elif name == 'fr':
+		contenido = datos.texto_descripcion_fr
+	else:
+		contenido = datos.texto_descripcion
+
+	response = render_to_response("cavelier_firma_conducta.html", {'datos': datos, 'contenido': contenido, 'idioma': name}, context_instance=RequestContext(request))
+	return response

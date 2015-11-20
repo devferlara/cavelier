@@ -5,6 +5,8 @@ from redactor.fields import RedactorField
 class acerca(models.Model):
 	nombre = models.CharField(max_length=80)
 	texto_descripcion = RedactorField(verbose_name=u'Contenido', default=' ')
+	texto_descripcion_en = RedactorField(verbose_name=u'Contenido Ingles', default=' ')
+	texto_descripcion_fr = RedactorField(verbose_name=u'Contenido Frances', default=' ')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 
 	def __unicode__(self):
@@ -14,6 +16,8 @@ class acerca(models.Model):
 class conducta(models.Model):
 	nombre = models.CharField(max_length=80)
 	texto_descripcion = RedactorField(verbose_name=u'Contenido', default=' ')
+	texto_descripcion_en = RedactorField(verbose_name=u'Contenido Ingles', default=' ')
+	texto_descripcion_fr = RedactorField(verbose_name=u'Contenido Frances', default=' ')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 
 	def __unicode__(self):
@@ -23,6 +27,8 @@ class conducta(models.Model):
 class reconocimientos(models.Model):
 	nombre = models.CharField(max_length=80)
 	texto_descripcion = RedactorField(verbose_name=u'Contenido', default=' ')
+	texto_descripcion_en = RedactorField(verbose_name=u'Contenido Ingles', default=' ')
+	texto_descripcion_fr = RedactorField(verbose_name=u'Contenido Frances', default=' ')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 
 	def __unicode__(self):
@@ -32,6 +38,8 @@ class reconocimientos(models.Model):
 class membresias(models.Model):
 	nombre = models.CharField(max_length=80)
 	texto_descripcion = RedactorField(verbose_name=u'Contenido', default=' ')
+	texto_descripcion_en = RedactorField(verbose_name=u'Contenido Ingles', default=' ')
+	texto_descripcion_fr = RedactorField(verbose_name=u'Contenido Frances', default=' ')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 
 	def __unicode__(self):
