@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ datos.imagen_interna }}" width="100%" />
+            <span class="firma_texto">
+                EXCELENCIA LEGAL<strong>EN UN MUNDO SIN FRONTERAS</strong>
+            </span>
+        </div>
+        <div class="col-md-8">
+
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+                        
+                        {% if idioma == 'es' %}
+                            <span class="la_firma">LA FIRMA</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">ACERCA DE NOSOTROS</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">CONDUCTA PROFESIONAL</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros firma_activa">RECONOCIMIENTOS</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros">MEMBRESÍAS</span></a>
+                        {% endif %}
+                        {% if idioma == 'en' %}
+                            <span class="la_firma">THE FIRM</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">ABOUT US</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">PROFESSIONAL CONDUCT</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros firma_activa">AWARDS</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros">MEMBERSHIPS</span></a>
+                        {% endif %}
+                        {% if idioma == 'fr' %}
+                            <span class="la_firma">LE CABINET</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">MIEUX NOUS CONNAÍTRE</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">CONDUITE PROFESSIONNELLE</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros firma_activa">RÉCOMPENSES</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros">MEMBRE D’ASSOCIATIONS</span></a>
+                        {% endif %}
+
+                    
+                        <div class="firma_contenido">
+                        
+                            {% autoescape off %}
+                                {{ contenido }}
+                            {% endautoescape %}
+                            
+                            {% if idioma == 'es' %}
+                                <span class="titulo_reconocimientos">ÚLTIMOS RECONOCIMIENTOS</span>
+                            {% endif %}
+                            {% if idioma == 'en' %}
+                                <span class="titulo_reconocimientos">LAST AWARDS</span>
+                            {% endif %}
+                            {% if idioma == 'fr' %}
+                                <span class="titulo_reconocimientos">DERNIERS TROPHÉES</span>
+                            {% endif %}
+                            
+                            
+                            <div class="imagenes_membresias">
+                                <img src="{{ media }}/files/reconocimientos/img-09.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-10.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-11.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-12.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-13.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-14.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-15.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-16.png" />
+                            </div>
+                            
+                            
+                            {% if idioma == 'es' %}
+                                <span class="titulo_reconocimientos">RECONOCIMIENTOS HISTÓRICOS</span>
+                            {% endif %}
+                            {% if idioma == 'en' %}
+                                <span class="titulo_reconocimientos">HISTORICAL SURVEY</span>
+                            {% endif %}
+                            {% if idioma == 'fr' %}
+                                <span class="titulo_reconocimientos">ENQUÊTE HISTORIQUE</span>
+                            {% endif %}
+                            
+                            
+                            <div class="imagenes_membresias">
+                                <img src="{{ media }}/files/reconocimientos/img-17.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-18.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-19.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-20.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-21.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-22.png" />
+                                <img src="{{ media }}/files/reconocimientos/img-23.png" />
+                            </div>
+                                
+                                
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

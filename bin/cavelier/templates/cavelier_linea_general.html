@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    {% if idioma == 'es' %}
+    <span class="titulo_linea_general">LÍNEAS DE SERVICIO</span>
+    {% endif %}
+    {% if idioma == 'en' %}
+    <span class="titulo_linea_general">SERVICES</span>
+    {% endif %}
+    {% if idioma == 'fr' %}
+    <span class="titulo_linea_general">LIGNES DE SERVICES</span>
+    {% endif %}
+    
+    <div class="row">
+        
+        {% if idioma == 'es' %}
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_internacional/"><img src="{{ media }}{{ datos.imagen_internacional }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_propiedad_intelectual/"><img src="{{ media }}{{ datos.imagen_propiedad }}" width="100%" /></a>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_litigios/"><img src="{{ media }}{{ datos.imagen_litigios }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_negocios/"><img src="{{ media }}{{ datos.imagen_negocios }}" width="100%" /></a>
+            </div>
+        {% endif %}
+        {% if idioma == 'en' %}
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_internacional/"><img src="{{ media }}{{ datos.imagen_internacional_en }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_propiedad_intelectual/"><img src="{{ media }}{{ datos.imagen_propiedad_en }}" width="100%" /></a>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_litigios/"><img src="{{ media }}{{ datos.imagen_litigios_en }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_negocios/"><img src="{{ media }}{{ datos.imagen_negocios_en }}" width="100%" /></a>
+            </div>
+        {% endif %}
+        {% if idioma == 'fr' %}
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_internacional/"><img src="{{ media }}{{ datos.imagen_internacional_fr }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_propiedad_intelectual/"><img src="{{ media }}{{ datos.imagen_propiedad_fr }}" width="100%" /></a>
+            </div>
+
+            <div class="clearfix"></div>
+            <br />
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_litigios/"><img src="{{ media }}{{ datos.imagen_litigios_fr }}" width="100%" /></a>
+            </div>
+
+            <div class="col-md-6">
+                <a href="/{{ idioma }}/cavelier_negocios/"><img src="{{ media }}{{ datos.imagen_negocios_fr }}" width="100%" /></a>
+            </div>
+        {% endif %}
+        
+        
+        
+        
+    </div>
+</section>
+
+
+{% endblock %}
+

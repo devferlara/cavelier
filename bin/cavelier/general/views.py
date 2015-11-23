@@ -138,3 +138,46 @@ def conducta_firma(request, name):
 
 	response = render_to_response("cavelier_firma_conducta.html", {'datos': datos, 'contenido': contenido, 'idioma': name}, context_instance=RequestContext(request))
 	return response
+
+
+
+def reconocimientos_firma(request, name):
+	datos = reconocimientos.objects.get(pk=1)
+	if name == 'es':
+		contenido = datos.texto_descripcion
+	elif name == 'en':
+		contenido = datos.texto_descripcion_en
+	elif name == 'fr':
+		contenido = datos.texto_descripcion_fr
+	else:
+		contenido = datos.texto_descripcion
+
+	response = render_to_response("cavelier_firma_reconocimientos.html", {'datos': datos, 'contenido': contenido, 'idioma': name}, context_instance=RequestContext(request))
+	return response
+
+
+def membresias_firma(request, name):
+	datos = membresias.objects.get(pk=1)
+	if name == 'es':
+		contenido = datos.texto_descripcion
+	elif name == 'en':
+		contenido = datos.texto_descripcion_en
+	elif name == 'fr':
+		contenido = datos.texto_descripcion_fr
+	else:
+		contenido = datos.texto_descripcion
+
+	response = render_to_response("cavelier_firma_membresias.html", {'datos': datos, 'contenido': contenido, 'idioma': name}, context_instance=RequestContext(request))
+	return response
+
+
+def lineas(request, name):
+	datos = Linea_general.objects.get(pk=1)
+
+	response = render_to_response("cavelier_linea_general.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
+	return response
+
+def trabaje(request, name):
+	datos = Trabaje_con_nosotros.objects.get(pk=1)
+	response = render_to_response("cavelier_trabaje.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
+	return response

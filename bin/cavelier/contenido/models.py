@@ -26,3 +26,15 @@ class Pagina_principal(models.Model):
 
 	def __unicode__(self):
 		return self.nombre
+
+
+class Trabaje_con_nosotros(models.Model):
+	nombre = models.CharField(max_length=80)
+	nombre_en = models.CharField(max_length=80)
+	nombre_fr = models.CharField(max_length=80)
+	contenido = RedactorField(verbose_name=u'Contenido', default=' ')
+	contenido_en = RedactorField(verbose_name=u'Contenido Ingles', default=' ')
+	contenido_fr = RedactorField(verbose_name=u'Contenido Frances', default=' ')
+
+	def __unicode__(self):
+		return self.nombre

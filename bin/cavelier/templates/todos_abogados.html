@@ -5,29 +5,101 @@
 
 <section class="container">
     <div class="row">
-        {{ idioma }}
-        <div class="col-md-12">
-            {% if idioma == 'es' %}
-                <span class="lineas_lema">ABOGADOS</strong></span>
-            {% endif %}
-            {% if idioma == 'en' %}
-                <span class="lineas_lema">LAWYERS</strong></span>
-            {% endif %}
-            {% if idioma == 'fr' %}
-                <span class="lineas_lema">AVOCATS</strong></span>
-            {% endif %}
-        </div>
+       
         <div class="col-md-12">
             <div class="lineas_contenido">
                 <div class="row">
         
-                    {% for dato in datos %}
-
-                    <div class="col-md-4">
-                        <a class="area-link" href="/{{ idioma }}/abogado/{{ dato.pk }}">{{ dato.apellidos }} {{ dato.nombre }}</a>
+                    {% if idioma == 'es' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">MOSTRAR POR:</span>
+                        <span class="orden_alf">ORDEN ALFABÉTICO</span>
+                        <a href="/{{ idioma }}/areas-de-practica/"><span class="orden_alf_inactivo">ÁREAS DE PRÁCTICA</span></a>
                     </div>
-
-                    {% endfor %}
+                    {% endif %}
+                    {% if idioma == 'en' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">SHOW BY:</span>
+                        <span class="orden_alf">ALPHABETICAL ORDER</span>
+                        <a href="/{{ idioma }}/areas-de-practica/"><span class="orden_alf_inactivo">AREAS OF PRACTICE</span></a>
+                    </div>
+                    {% endif %}
+                    {% if idioma == 'fr' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">MONTRER PAR:</span>
+                        <span class="orden_alf">ORDRE ALPHABÉTIQUE</span>
+                        <a href="/{{ idioma }}/areas-de-practica/"><span class="orden_alf_inactivo">DOMAINES DE PRATIQUE</span></a>
+                    </div>
+                    {% endif %}
+                    
+                    
+                    
+                    <div class="col-md-9">
+                        
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                
+                                {% if idioma == 'es' %}
+                                <a href="#"><span class="la_firma_cuadros firma_activa caja2">ABOGADOS ASOCIADOS Y OTROS PROFESIONALES</span></a>
+                                <a href="#"><span class="la_firma_cuadros caja1">SOCIOS Y JEFES DE DEPARTAMENTOS</span></a>
+                                {% endif %}
+                                {% if idioma == 'en' %}
+                                <a href="#"><span class="la_firma_cuadros firma_activa caja2">ASSOCIATED ATTORNEYS AND OTHER PROFESSIONALS</span></a>
+                                <a href="#"><span class="la_firma_cuadros caja1">PARTNERS AND HEADS OF DEPARTMENT</span></a>
+                                {% endif %}
+                                {% if idioma == 'fr' %}
+                                <a href="#"><span class="la_firma_cuadros firma_activa caja2">AVOCATS ASSOCIES ET AUTRES PROFESSIONNELS</span></a>
+                                <a href="#"><span class="la_firma_cuadros caja1">PARTENAIRES ET CHEFS DE SERVICE</span></a>
+                                {% endif %}
+                            
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <span class="letras_abogados">
+                                    A - B - C - D - E
+                                    <div class="contenedor_abogados1" id="a-e1"></div>
+                                    <div class="contenedor_abogados2" id="a-e2"></div>
+                                </span>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <span class="letras_abogados">
+                                    F - G - H - I - J
+                                    <div class="contenedor_abogados1" id="f-j1"></div>
+                                    <div class="contenedor_abogados2" id="f-j2"></div>
+                                </span>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <span class="letras_abogados">
+                                    K - L - M - N - O
+                                    <div class="contenedor_abogados1" id="k-o1"></div>
+                                    <div class="contenedor_abogados2" id="k-o2"></div>
+                                </span>
+                            </div>
+                            
+                            <div class="clearfix"></div>
+                            
+                            <div class="col-md-4">
+                                <span class="letras_abogados">
+                                    P - Q - R - S - T
+                                    <div class="contenedor_abogados1" id="p-t1"></div>
+                                    <div class="contenedor_abogados2" id="p-t2"></div>
+                                </span>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <span class="letras_abogados">
+                                    U - V - X - Y - Z
+                                    <div class="contenedor_abogados1" id="u-z1"></div>
+                                    <div class="contenedor_abogados2" id="u-z2"></div>
+                                </span>
+                            </div>
+                            
+                        </div>
+                    
+                    </div>
                     
 
                 </div>
@@ -36,5 +108,145 @@
         
     </div>
 </section>
+
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+
+
+
+    var nombres_abogados = [];
+    var id_abogados = [];
+    var cargo_abogado = [];
+
+    {% for dato in datos %}
+
+    nombres_abogados.push("{{ dato.apellidos }}, {{ dato.nombre }}");
+     id_abogados.push("{{ dato.pk }}")
+
+     {% for cargo in dato.cargo.all %}
+     cargo_abogado.push("{{ cargo.pk }}");
+      {% endfor %}
+
+      {% endfor %}
+
+      for(cargo in cargo_abogado){
+
+          if(cargo_abogado[cargo] == 1){
+              //Soc
+              var abg = nombres_abogados[cargo].charAt(0).toUpperCase();
+
+              if( abg == 'A' || abg == 'B' || abg == 'C' || abg == 'D' || abg == 'E'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('a-e1');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'F' || abg == 'G' || abg == 'H' || abg == 'I' || abg == 'J'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('f-j1');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'K' || abg == 'L' || abg == 'M' || abg == 'N' || abg == 'O'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('k-o1');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'P' || abg == 'Q' || abg == 'R' || abg == 'S' || abg == 'T'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('p-t1');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'U' || abg == 'V' || abg == 'W' || abg == 'X' || abg == 'Y' || abg == 'Z'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('u-z1');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+          } else {
+              //Abo
+              var abg = nombres_abogados[cargo].charAt(0).toUpperCase();
+
+              if( abg == 'A' || abg == 'B' || abg == 'C' || abg == 'D' || abg == 'E'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('a-e2');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'F' || abg == 'G' || abg == 'H' || abg == 'I' || abg == 'J'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('f-j2');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'K' || abg == 'L' || abg == 'M' || abg == 'N' || abg == 'O'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('k-o2');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'P' || abg == 'Q' || abg == 'R' || abg == 'S' || abg == 'T'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('p-t2');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+              if( abg == 'U' || abg == 'V' || abg == 'W' || abg == 'X' || abg == 'Y' || abg == 'Z'){
+                  var cadena = '<a href="/{{ idioma }}/abogado/' + id_abogados[cargo] + '"><span class="abogado_lista">' + nombres_abogados[cargo] + '</span>';
+                  var div = document.getElementById('u-z2');
+                  div.innerHTML = div.innerHTML + cadena;
+              }
+
+          }
+
+      }
+
+       
+       $(document).ready(function() {
+
+           $('.caja1').on("click", function(){
+               
+               $(this).addClass('firma_activa');
+               $('.caja2').removeClass('firma_activa');
+               
+               mostrarCajaUno();
+               
+           });
+           
+           $('.caja2').on("click", function(){
+
+               $(this).addClass('firma_activa');
+               $('.caja1').removeClass('firma_activa');
+               
+               mostrarCajaDos();
+
+           });
+           
+           
+           function mostrarCajaUno(){
+               $('.contenedor_abogados2').hide();
+               $('.contenedor_abogados1').show();
+           }
+           
+           function mostrarCajaDos(){
+               $('.contenedor_abogados1').hide();
+               $('.contenedor_abogados2').show();
+           }
+           
+           
+
+       });
+       
+       
+
+
+
+</script>
 
 {% endblock %}

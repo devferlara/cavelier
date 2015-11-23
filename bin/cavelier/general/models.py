@@ -61,3 +61,4 @@ class Cargos_fr(models.Model):
 
 	def __unicode__(self):
 		return self.cargo
+

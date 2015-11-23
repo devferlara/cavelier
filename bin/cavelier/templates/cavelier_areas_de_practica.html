@@ -5,36 +5,58 @@
 
 <section class="container">
     <div class="row">
-        {{ idioma }}
-        <div class="col-md-12">
-            {% if idioma == 'es' %}
-                <span class="lineas_lema">LÍNEAS DE SERVICIOS</strong></span>
-            {% endif %}
-            {% if idioma == 'en' %}
-                <span class="lineas_lema">SERVICES</strong></span>
-            {% endif %}
-            {% if idioma == 'fr' %}
-                <span class="lineas_lema">LIGNES DE SERVICES</strong></span>
-            {% endif %}
-        </div>
+
         <div class="col-md-12">
             <div class="lineas_contenido">
                 <div class="row">
-        
-                    {% for dato in datos %}
 
-                    <div class="col-md-6">
-                        <a class="area-link" href="/{{ idioma }}/area/{{ dato.pk }}">{{ dato.nombre }}</a>
+                    {% if idioma == 'es' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">MOSTRAR POR:</span>
+                        <a href="/{{ idioma }}/abogados-az/"><span class="orden_alf_inactivo">ORDEN ALFABÉTICO</span></a>
+                        <span class="orden_alf">ÁREAS DE PRÁCTICA</span>
+                    </div>
+                    {% endif %}
+                    {% if idioma == 'en' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">SHOW BY:</span>
+                        <a href="/{{ idioma }}/abogados-az/"><span class="orden_alf_inactivo">ALPHABETICAL ORDER</span></a>
+                        <span class="orden_alf">AREAS OF PRACTICE</span>
+                    </div>
+                    {% endif %}
+                    {% if idioma == 'fr' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">MONTRER PAR:</span>
+                        <a href="/{{ idioma }}/abogados-az/"><span class="orden_alf_inactivo">ORDRE ALPHABÉTIQUE</span></a>
+                        <span class="orden_alf">DOMAINES DE PRATIQUE</span>
+                    </div>
+                    {% endif %}
+
+                    <div class="col-md-9">
+
+                        <div class="row">
+                
+                            {% for dato in datos %}
+
+                            <div class="col-md-6">
+                                <a class="area-link" href="/{{ idioma }}/area/{{ dato.pk }}">{{ dato.nombre }}</a>
+                            </div>
+
+                            {% endfor %}
+                            
+                        </div>
+
                     </div>
 
-                    {% endfor %}
-                    
 
                 </div>
             </div>
         </div>
-        
+
     </div>
 </section>
 
+
 {% endblock %}
+
+

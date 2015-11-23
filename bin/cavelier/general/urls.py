@@ -30,9 +30,17 @@ urlpatterns = patterns ('',
 	#abogado ver
 	url(r'^(?P<name>\w+)/abogado/(?P<id>\w+)/$', 'general.views.abogado'),
 
+	#lineas generales
+	url(r'^(?P<name>\w+)/lineas/', 'general.views.lineas'),
+
 	#seccion firma
 	url(r'^(?P<name>\w+)/firma/acerca/$', 'general.views.acerca_firma'),
 	url(r'^(?P<name>\w+)/firma/conducta/$', 'general.views.conducta_firma'),
+	url(r'^(?P<name>\w+)/firma/reconocimientos/$', 'general.views.reconocimientos_firma'),
+	url(r'^(?P<name>\w+)/firma/membresias/$', 'general.views.membresias_firma'),
+
+	#Trabaje
+	url(r'^(?P<name>\w+)/trabaje/$', 'general.views.trabaje'),
 
 )
 

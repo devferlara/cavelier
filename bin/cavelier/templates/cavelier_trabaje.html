@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}uploads/cavelier_web_13-11-15-09_jtFAjln_uUr1Hqf.png" width="100%" />
+        </div>
+        <div class="col-md-8">
+            <span class="profesional_lema">
+                {% if idioma == 'es' %}
+                    {{ datos.nombre }}
+                {% endif %}
+                {% if idioma == 'en' %}
+                    {{ datos.nombre_en }}
+                {% endif %}
+                {% if idioma == 'fr' %}
+                    {{ datos.nombre_fr }}
+                {% endif %}
+            </span>
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+                        
+                        {% if idioma == 'es' %}
+                            {% autoescape off %}
+                                {{ datos.contenido }}
+                            {% endautoescape %}
+                        {% endif %}
+                        {% if idioma == 'en' %}
+                            {% autoescape off %}
+                                {{ datos.contenido_en }}
+                            {% endautoescape %}
+                        {% endif %}
+                        {% if idioma == 'fr' %}
+                            {% autoescape off %}
+                                {{ datos.contenido_fr }}
+                            {% endautoescape %}
+                        {% endif %}
+                          
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+

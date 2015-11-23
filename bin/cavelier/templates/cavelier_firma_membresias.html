@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ datos.imagen_interna }}" width="100%" />
+            <span class="firma_texto">
+                EXCELENCIA LEGAL<strong>EN UN MUNDO SIN FRONTERAS</strong>
+            </span>
+        </div>
+        <div class="col-md-8">
+
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+
+                        {% if idioma == 'es' %}
+                            <span class="la_firma">LA FIRMA</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">ACERCA DE NOSOTROS</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">CONDUCTA PROFESIONAL</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros">RECONOCIMIENTOS</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros firma_activa">MEMBRESÍAS</span></a>
+                        {% endif %}
+                        {% if idioma == 'en' %}
+                            <span class="la_firma">THE FIRM</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">ABOUT US</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">PROFESSIONAL CONDUCT</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros">AWARDS</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros firma_activa">MEMBERSHIPS</span></a>
+                        {% endif %}
+                        {% if idioma == 'fr' %}
+                            <span class="la_firma">LE CABINET</span>
+                            <a href="/{{ idioma }}/firma/acerca/"><span class="la_firma_cuadros">MIEUX NOUS CONNAÍTRE</span></a>
+                            <a href="/{{ idioma }}/firma/conducta/"><span class="la_firma_cuadros">CONDUITE PROFESSIONNELLE</span></a>
+                            <a href="/{{ idioma }}/firma/reconocimientos/"><span class="la_firma_cuadros">RÉCOMPENSES</span></a>
+                            <a href="/{{ idioma }}/firma/membresias/"><span class="la_firma_cuadros firma_activa">MEMBRE D’ASSOCIATIONS</span></a>
+                        {% endif %}
+
+                    
+                        <div class="firma_contenido">
+                            
+                            {% if idioma == 'es' %}
+                                <span class="titulo_reconocimientos">MEMBRESIAS INTERNACIONALES</span>
+                            {% endif %}
+                            {% if idioma == 'en' %}
+                                <span class="titulo_reconocimientos">INTERNATIONAL MEMBERSHIP</span>
+                            {% endif %}
+                            {% if idioma == 'fr' %}
+                                <span class="titulo_reconocimientos">ADHÉSION INTERNATIONAL</span>
+                            {% endif %}
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-25.png" />
+                                    <p>La International Bar Association (IBA), fundada en 1947 es la principal organización mundial de profesionales y asociaciones del sector legal.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-26.png" />
+                                    <p>La International Trademark Association (INTA), fundada en 1878, es una asociación dedicada al apoyo y al avance de la practica de la propiedad intelectual en el mundo.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-27.png" />
+                                    <p>La International Chamber of commerse fundada en 1919, es la organización líder mundial, en promover el fortalecimiento de lazos comerciales entre naciones.</p>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-28.png" />
+                                    <p>La Asociación Interamericana de la Propiedad Intelectual (ASIPI), es una organización sin animo de lucro, fundada en 1964, con el objetivo de reunir y asociar profesionales interesados en estudiar, diseminar y desarrollar leyes de propiedad intelectual en América.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-29.png" />
+                                    <p>APRAM es la asociación de profesionales de Diseño y  Modelos Derechos de Marcas, con casi 30 años de experiencia, asocia expertos de la Propiedad Industrial e Intelectual alrededor del mundo.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-30.png" />
+                                    <p>La Organización Para un Red Internacional de Indicaciones Geográficas (ORIGIN), es una ONG que busca la promoción de una protección Jurídica más eficaz de las indicaciones geográficas y su promoción como instrumento de desarrollo sostenible.</p>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-31.png" />
+                                    <p>Con una red de 3.000 abogados laborales pre-seleccionados por su calidad y capacidad de respuesta – en todos los 50 estados de EE.UU. y 300 ciudades de todo el mundo, el Employment Law Alliance es un recurso único y poderoso legal para los empleadores.</p>
+                                </div>
+                            
+                            </div>
+
+                            
+                            {% if idioma == 'es' %}
+                                <span class="titulo_reconocimientos">CÁMARAS DE COMERCIO</span>
+                            {% endif %}
+                            {% if idioma == 'en' %}
+                                <span class="titulo_reconocimientos">CHAMBERS OF COMMERCE</span>
+                            {% endif %}
+                            {% if idioma == 'fr' %}
+                                <span class="titulo_reconocimientos">CHAMBRES DE COMMERCE</span>
+                            {% endif %}
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-32.png" />
+                                    <p>Fundada en 1955, La Cámara de Comercio Columbo Americana, agrupa el sector privado de Colombia y Estados Unidos, y fomenta el comercio y la inversión entre estos dos países.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-33.png" />
+                                    <p>La Cámara de Industria y Comercio Columbo Alemana, apoya tanto a presas Alemanas como Colombianas, con el fin de fomentar relaciones comerciales entre estos países.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-34.png" />
+                                    <p>Fundada en 1917, La Cámara Columbo Francesa de Comercio e Industria, contribuye al desarrollo de las relaciones comerciales entre Colombia y Francia.</p>
+                                </div>
+                                
+                            </div>
+                            
+                            {% if idioma == 'es' %}
+                                <span class="titulo_reconocimientos">MEMBRESÍAS NACIONALES</span>
+                            {% endif %}
+                            {% if idioma == 'en' %}
+                                <span class="titulo_reconocimientos">NATIONAL MEMBERSHIP</span>
+                            {% endif %}
+                            {% if idioma == 'fr' %}
+                                <span class="titulo_reconocimientos">ADHÉSION NATIONALE</span>
+                            {% endif %}
+                            
+                            <div class="row">
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-35.png" />
+                                    <p>La Cámara de Servicios legales de la ANDI, asocia firmas de abogados independientes en Colombia, para promover la aplicación eficiente de la ley y la operatividad de las instituciones Jurídicas.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-36.png" />
+                                    <p>La ANDI Seccional de Antioquia, como importante gremio empresarial, busca propiciar las condiciones necesarias para incrementar la competitividad, y el progreso sostenible de la región.</p>
+                                </div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-37.png" />
+                                    <p>La Asociación Colombiana de la Propiedad Intelectual, es una organización privada, sin animo de lucro, que vela por el desarrollo del Derecho de la Propiedad Intelectual y sus áreas conexas en Colombia.</p>
+                                </div>
+                                
+                                <div class="clearfix"></div>
+                                
+                                <div class="col-md-4 text-justify">
+                                    <img src="{{ media }}/files/membresias/img-38.png" />
+                                    <p>Cavelier Abogados, es una de las firmas fundadoras de Pro Bono Colombia, organización que apoya a quienes no cuentan con recursos para acceder a conserjería legal, conectándolos con equipo de abogados dispuestos a ofrecerlo, gratuitamente y de la mejor calidad.</p>
+                                </div>
+                                
+                            </div>
+                            
+                           
+                                
+                        </div>
+
+                        
+
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
