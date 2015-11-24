@@ -9,7 +9,6 @@ class Linea_de_servicio(models.Model):
 	imagen = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	texto_lema = RedactorField(verbose_name=u'Lema', default=' ')
-
 	texto_descripcion = RedactorField(verbose_name=u'Descripcion', default=' ')
 
 	def __unicode__(self):
