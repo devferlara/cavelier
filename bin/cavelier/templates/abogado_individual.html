@@ -8,7 +8,7 @@
 {% if idioma == 'es' %}
     <section class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <img src="{{ media }}{{ dato.imagen }}" width="100%" />
             <span class="profesional_area">
                 {% for cargo in dato.cargo.all %}
@@ -35,7 +35,7 @@
             </div>
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <span class="profesional_lema">
                 {{ dato.lema }}
             </span>
@@ -87,7 +87,7 @@
 {% if idioma == 'en' %}
     <section class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <img src="{{ media }}{{ dato.imagen }}" width="100%" />
             <span class="profesional_area">
                 {% for cargo in dato.cargo_en.all %}
@@ -114,7 +114,7 @@
             </div>
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <span class="profesional_lema">
                 {{ dato.lema }}
             </span>
@@ -166,7 +166,7 @@
 {% if idioma == 'fr' %}
     <section class="container">
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-3">
             <img src="{{ media }}{{ dato.imagen }}" width="100%" />
             <span class="profesional_area">
                 {% for cargo in dato.cargo_fr.all %}
@@ -193,7 +193,7 @@
             </div>
 
         </div>
-        <div class="col-md-8">
+        <div class="col-md-9">
             <span class="profesional_lema">
                 {{ dato.lema }}
             </span>

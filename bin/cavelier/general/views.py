@@ -181,3 +181,12 @@ def trabaje(request, name):
 	datos = Trabaje_con_nosotros.objects.get(pk=1)
 	response = render_to_response("cavelier_trabaje.html", {'datos': datos, 'idioma': name}, context_instance=RequestContext(request))
 	return response
+
+def calendario(request, name):
+	response = render_to_response("cavelier_calendario.html", {'idioma': name}, context_instance=RequestContext(request))
+	return response
+
+def contacto(request, name):
+	datos = Contacto.objects.get(pk=1)
+	response = render_to_response("cavelier_contacto.html", {'idioma': name, 'datos': datos}, context_instance=RequestContext(request))
+	return response

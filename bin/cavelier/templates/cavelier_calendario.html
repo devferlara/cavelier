@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+       
+        <div class="col-md-12">
+            <div class="lineas_contenido">
+                <div class="row">
+        
+                    {% if idioma == 'es' %}
+                    <div class="col-md-3">
+                        <span class="calendario_letras">CALENDARIO DE EVENTOS:</span>
+                    </div>
+                    {% endif %}
+                    {% if idioma == 'en' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">SHOW BY:</span>
+                        
+                    </div>
+                    {% endif %}
+                    {% if idioma == 'fr' %}
+                    <div class="col-md-3">
+                        <span class="mostrar_por">MONTRER PAR:</span>
+                    
+                    </div>
+                    {% endif %}
+                    
+                    
+                    
+                    <div class="col-md-9">
+                        
+                        <div id='calendar'></div>
+                    
+                    </div>
+                    
+
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+{% endblock %}
+
+{% block js %}
+
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+
+		$('#calendar').fullCalendar({
+			defaultDate: '2015-02-12',
+			editable: true,
+            lang:"es",
+			eventLimit: true, // allow "more" link when too many events
+			events: [
+				
+                
+			]
+		});
+		
+	});
+
+    
+</script>
+
+{% endblock %}
