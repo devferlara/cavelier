@@ -3,6 +3,7 @@ from general.models import *
 from contenido.models import *
 from lineas_de_servicio.models import * 
 from abogados.models import *
+from noticias.models import *
 from firma.models import *
 from django.template import Context, RequestContext
 
@@ -189,4 +190,15 @@ def calendario(request, name):
 def contacto(request, name):
 	datos = Contacto.objects.get(pk=1)
 	response = render_to_response("cavelier_contacto.html", {'idioma': name, 'datos': datos}, context_instance=RequestContext(request))
+	return response
+
+def noticias(request, name):
+	datos = Noticias_web.objects.all()
+	response = render_to_response("cavelier_noticias.html", {'idioma': name, 'datos': datos}, context_instance=RequestContext(request))
+	return response
+
+def noticias_individual(request, name, id):
+	index = Noticias_web.objects.filter(pk=id) 
+	idioma = name
+	response = render_to_response("cavelier_noticias_individual.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
 	return response

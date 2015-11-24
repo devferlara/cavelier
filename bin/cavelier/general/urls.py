@@ -48,6 +48,11 @@ urlpatterns = patterns ('',
 	#Calendario
 	url(r'^(?P<name>\w+)/calendario/$', 'general.views.calendario'),
 
+	#Noticias
+	url(r'^(?P<name>\w+)/noticias/$', 'general.views.noticias'),
+	#Noticias
+	url(r'^(?P<name>\w+)/noticias/(?P<id>\w+)/$', 'general.views.noticias_individual'),
+
 
 )
 

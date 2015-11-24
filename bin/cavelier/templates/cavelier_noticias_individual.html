@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ media }}{{ datos.imagen }}" width="100%" />
+        </div>
+        <div class="col-md-8">
+            <span class="profesional_lema">
+                {{ datos.nombre }}
+            </span>
+            <div class="linea_datos">
+                <div class="row padding_datos">
+                    <div class="col-md-12">
+                        
+                        {% autoescape off %}
+                            {{ datos.contenido }}
+                        {% endautoescape %}
+                        
+                    </div>
+                    <div class="col-md-12">
+                        <hr />
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
