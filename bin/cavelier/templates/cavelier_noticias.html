@@ -11,8 +11,10 @@
                 <div class="interno_noti">
                     <div class="contenido_noti">
                         <div class="degrade_noti">
-                            <span class="titulo_noti">{{ dato.nombre }}</span>
-                            <span class="leer_noti">LEER <i class="fa fa-chevron-right"></i></span>
+                            <a href="/{{ idioma }}/noticias/{{ dato.pk }}">
+                                <span class="titulo_noti">{{ dato.nombre }}</span>
+                                <span class="leer_noti">LEER <i class="fa fa-chevron-right"></i></span>
+                            </a>
                         </div>
                     </div>
                 </div>

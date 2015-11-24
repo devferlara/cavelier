@@ -198,7 +198,7 @@ def noticias(request, name):
 	return response
 
 def noticias_individual(request, name, id):
-	index = Noticias_web.objects.filter(pk=id) 
+	index = Noticias_web.objects.get(pk=id) 
 	idioma = name
 	response = render_to_response("cavelier_noticias_individual.html", {'datos': index, 'idioma': idioma}, context_instance=RequestContext(request))
 	return response

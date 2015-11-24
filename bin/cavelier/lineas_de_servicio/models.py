@@ -9,6 +9,7 @@ class Linea_de_servicio(models.Model):
 	imagen = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	imagen_interna = models.ImageField(upload_to='uploads', default='imagen/default.png')
 	texto_lema = RedactorField(verbose_name=u'Lema', default=' ')
+
 	texto_descripcion = RedactorField(verbose_name=u'Descripcion', default=' ')
 
 	def __unicode__(self):
@@ -18,6 +19,8 @@ class Linea_individual(models.Model):
 	nombre = models.CharField(max_length=100)
 	linea = models.ForeignKey(Linea_de_servicio, blank=True, default='')
 	contenido = RedactorField(verbose_name=u'Descripcion', default=' ')
+	texto_descripcion_en = RedactorField(verbose_name=u'Descripcion Ingles', default=' ', blank=True)
+	texto_descripcion_fr = RedactorField(verbose_name=u'Descripcion Frances', default=' ', blank=True)
 
 	def __unicode__(self):
 		return self.nombre + u" --- " + self.linea.nombre
